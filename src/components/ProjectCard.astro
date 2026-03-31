@@ -1,0 +1,43 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  subtitle: string;
+  thumbnail: string;
+  tags: string[];
+  gridSize: 'large' | 'medium' | 'small';
+  heroFit?: 'cover' | 'contain';
+}
+
+const { slug, title, subtitle, thumbnail, tags, gridSize, heroFit = 'cover' } = Astro.props;
+
+const colSpanClass = 'md:col-span-12';
+
+const aspectClass = gridSize === 'small' ? 'aspect-square' : 'aspect-[4/3]';
+---
+
+<a
+  href={`/projects/${slug}`}
+  class:list={['col-span-12 group block relative overflow-hidden reveal', colSpanClass]}
+>
+  <div class:list={['relative w-full overflow-hidden', heroFit === 'contain' ? '' : 'bg-gray-100', aspectClass]}>
+    <img
+      src={thumbnail}
+      alt={title}
+      class={`w-full h-full transition-transform duration-500 ease-out group-hover:scale-105 ${heroFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+      loading="lazy"
+    />
+    <!-- Hover overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+      <div class="flex flex-wrap gap-2 mb-3">
+        {tags.map((tag) => (
+          <span class="text-xs font-medium text-white/80 bg-white/15 px-2.5 py-1">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <h3 class="font-heading font-bold text-white text-xl md:text-2xl">{title}</h3>
+      <p class="text-white/70 text-sm mt-1">{subtitle}</p>
+    </div>
+  </div>
+</a>

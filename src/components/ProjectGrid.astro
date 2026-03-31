@@ -1,0 +1,49 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+interface Project {
+  id: string;
+  data: {
+    title: string;
+    subtitle: string;
+    thumbnail: string;
+    tags: string[];
+    gridSize: 'large' | 'medium' | 'small';
+    sortOrder: number;
+    heroFit?: 'cover' | 'contain';
+  };
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+const sorted = [...projects].sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<section id="work" class="bg-white py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="mb-12 reveal">
+      <span class="inline-block bg-black text-white text-xs font-mono font-medium uppercase tracking-wider px-4 py-2 mb-4">
+        Selected Work
+      </span>
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-black">
+        Projects
+      </h2>
+    </div>
+    <div class="grid grid-cols-12 gap-4 md:gap-5 reveal-stagger">
+      {sorted.map((project) => (
+        <ProjectCard
+          slug={project.id}
+          title={project.data.title}
+          subtitle={project.data.subtitle}
+          thumbnail={project.data.thumbnail}
+          tags={project.data.tags}
+          gridSize={project.data.gridSize}
+          heroFit={project.data.heroFit}
+        />
+      ))}
+    </div>
+  </div>
+</section>

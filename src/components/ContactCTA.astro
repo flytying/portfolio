@@ -1,0 +1,55 @@
+---
+interface Props {
+  variant?: 'dribbble' | 'contact';
+}
+
+const { variant = 'dribbble' } = Astro.props;
+---
+
+<section id="contact" class="bg-black bg-dot-grid-dark py-24 md:py-32">
+  <div class="mx-auto max-w-7xl px-6 text-center">
+    {variant === 'contact' ? (
+      <>
+        <h2
+          class="font-heading font-bold text-white leading-[0.9] tracking-tight mb-6 reveal"
+          style="font-size: clamp(2rem, 5vw, 4.5rem);"
+        >
+          Let's work<br />together.
+        </h2>
+        <p class="text-gray-400 text-lg mb-10 reveal">
+          Have a project in mind? I'd love to hear from you.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+          <a
+            onclick="window.location.href='mai'+'lto:'+'jordanhilario'+'@'+'protonmail.com'"
+            class="inline-block bg-accent text-white text-sm font-medium px-8 py-3.5 hover:bg-accent-hover transition-colors duration-200 cursor-pointer"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </>
+    ) : (
+      <>
+        <h2
+          class="font-heading font-bold text-white leading-[0.9] tracking-tight mb-6 reveal"
+          style="font-size: clamp(2rem, 5vw, 4.5rem);"
+        >
+          See more of<br />my work.
+        </h2>
+        <p class="text-gray-400 text-lg mb-10 reveal">
+          Check out more projects and explorations on Dribbble.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+          <a
+            href="https://dribbble.com/jordanhilario"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-accent text-white text-sm font-medium px-8 py-3.5 hover:bg-accent-hover transition-colors duration-200"
+          >
+            View Dribbble
+          </a>
+        </div>
+      </>
+    )}
+  </div>
+</section>

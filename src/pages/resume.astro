@@ -1,0 +1,270 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlockHeading from '@components/BlockHeading.astro';
+import ResumeTimeline from '@components/ResumeTimeline.astro';
+import SkillsGrid from '@components/SkillsGrid.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+
+const experiences = [
+  {
+    company: 'DemandScience',
+    role: 'Senior UX/UI Designer',
+    period: 'Nov 2023 — Present',
+    highlights: [
+      'Built and launched the company\'s first design system in collaboration with Marketing, accelerating development cycles and standardizing UI across products.',
+      'Owned UX/UI improvements for DemandXchange, optimizing internal workflows and reducing friction for the lead fulfillment team.',
+      'Applied AI-assisted design and automation tools to streamline workflows and improve output quality; expanding capabilities in AI agent automation to enhance platform scalability.',
+    ],
+  },
+  {
+    company: 'Playgroundzero',
+    role: 'Lead UI/UX',
+    period: 'Nov 2022 — Jul 2023',
+    highlights: [
+      'Owned the full product redesign, establishing a unified design system aligned with user needs and company vision.',
+      'Set UI/UX standards that improved product consistency and usability.',
+      'Position impacted by company funding.',
+    ],
+  },
+  {
+    company: 'Nami',
+    role: 'Product Design Consultant',
+    period: 'Mar 2022 — Mar 2023',
+    highlights: [
+      'Owned end-to-end MVP design in collaboration with product leadership, translating early concepts into production-ready UI/UX.',
+      'Conducted user research and validation sessions with Figma prototypes to refine usability and prioritize features.',
+      'Successfully launched the MVP on time, enabling product validation and future platform scaling.',
+    ],
+  },
+  {
+    company: 'Coins.ph',
+    role: 'Senior Product Designer',
+    period: 'May 2021 — Oct 2022',
+    highlights: [
+      'Owned the end-to-end redesign of the Coins mobile app, driving improved user engagement and a 4.3/5 app store rating.',
+      'Led UX/UI improvements across core product features, including compliance workflows (KYC, Travel Rule), crypto transactions, and payments integration.',
+      'Designed and launched the first version of the Business Portal, enabling efficient workflows for hundreds of business customers.',
+      'Re-architected the Help Center experience to improve discoverability and self-service support.',
+    ],
+  },
+  {
+    company: 'First Performance',
+    role: 'Senior UI/UX Designer',
+    period: 'Jan 2019 — Dec 2019',
+    highlights: [
+      'Planned and executed user testing and qualitative interviews to inform UX strategy, resulting in measurable improvements to usability and overall product experience.',
+      'Served as a key design partner to product and engineering stakeholders, facilitating alignment across teams and driving user-centered decision-making.',
+    ],
+  },
+  {
+    company: 'DesignCrowd, Makati',
+    role: 'Senior UI/UX Designer',
+    period: 'Apr 2017 — Mar 2018',
+    highlights: [
+      'Drove UX strategy initiatives to improve platform usability and reduce friction across designer and customer workflows.',
+      'Played a key role in the cross-functional development and launch of a new printing product, collaborating across product, engineering, and support teams.',
+      'Helped position the product as a competitive revenue driver, with an estimated 30% increase in revenue potential.',
+    ],
+  },
+  {
+    company: 'PinoyJobs, Manila',
+    role: 'Founder',
+    period: 'Jan 2008 — Mar 2017',
+    highlights: [
+      'Built and scaled a recruitment marketplace from the ground up, combining product design, engineering, and growth strategy.',
+      'Achieved sustained 30% YoY revenue growth by aligning user experience improvements with acquisition and retention efforts.',
+      'Executed a successful acquisition by Yolo Tech, completing a full startup lifecycle from inception to exit.',
+    ],
+  },
+  {
+    company: 'The Design People',
+    role: 'HTML/Flash Team Leader',
+    period: 'Oct 2003 — Jul 2006',
+    highlights: [
+      'Improved the HTML turnover ratio for each of their real estate projects. Standardized the HTML implementation in my department which led to an increase in the completion of real estate web design projects.',
+    ],
+  },
+  {
+    company: 'Web Solutions Development Corp.',
+    role: 'Web Designer',
+    period: 'Apr 2003 — Oct 2003',
+    highlights: [
+      'Created and designed aspects of web development including layout, navigation, images, icons and multimedia for international clients. Clients include WBB USA, Sophora Labs, NOP Enterprises, Impact Signs & Stich It USA.',
+    ],
+  },
+  {
+    company: 'Emagin Multimedia',
+    role: 'Chief Designer',
+    period: 'Apr 2002 — Apr 2003',
+    highlights: [
+      'Worked as Chief Designer for Emagin Multimedia, a small web development company in the Philippines. Implemented and handled projects in the web, cd-rom presentation, flash, print and other forms of media. Clients include Ergo, Eastern Telecoms, Kuysen, LaGermania & Venplas.',
+    ],
+  },
+];
+
+const certifications = [
+  { name: 'AI Agents and Agentic AI with Python & Generative AI', period: 'Mar 2026', issuer: 'Vanderbilt University (Coursera)', url: 'https://www.coursera.org/account/accomplishments/verify/TPKLRHCQ9ETZ' },
+  { name: 'Design Thinking: The Beginner\'s Guide', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+  { name: 'Gestalt Psychology and Web Design: The Ultimate Guide', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+  { name: 'Human-Computer Interaction - HCI', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+  { name: 'Mobile User Experience (UX) Design', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+  { name: 'The Practical Guide to Usability', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+  { name: 'UI Design Patterns For Successful Software', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+  { name: 'User Research \u2013 Methods and Best Practices', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+  { name: 'Web Design for Usability', period: 'Mar 2018', issuer: 'IxDF - The Interaction Design Foundation' },
+];
+
+const awards = [
+  { name: 'Best Performing e-Business Website', period: 'Apr 2011', issuer: 'Gomez' },
+];
+
+const skillCategories = [
+  {
+    title: 'Design & Research',
+    skills: [
+      'Design Systems',
+      'Design Thinking',
+      'User Research',
+      'User Testing',
+      'A/B Testing',
+      'Wireframing',
+      'Prototyping',
+      'HCI',
+      'Heuristic Evaluation',
+      'User-centered Design',
+      'Usability Testing',
+    ],
+  },
+  {
+    title: 'Development',
+    skills: [
+      'HTML',
+      'CSS',
+      'Frontend Development',
+      'Bootstrap',
+      'WordPress',
+      'SEO',
+      'Google Analytics',
+    ],
+  },
+  {
+    title: 'Tools & Emerging',
+    skills: [
+      'Figma (Software)',
+      'Photography',
+      'LLMs',
+      'AI Automation',
+      'Prompt Engineering',
+      'Claude Code',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Resume — Jordan Hilario"
+  description="UI/UX, Product Designer with over 20+ years of experience in UI/UX and web design, combining senior design leadership with a founder mindset."
+>
+  <!-- Page Header -->
+  <section class="bg-white bg-dot-grid py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-xs font-medium uppercase tracking-[0.25em] text-gray-400 mb-4 reveal">Resume</p>
+      <h1
+        class="font-heading font-bold leading-[0.9] tracking-tight text-black reveal"
+        style="font-size: clamp(2.5rem, 6vw, 5rem);"
+      >
+        Experience &<br />expertise.
+      </h1>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-10 reveal">
+        <BlockHeading text="Experience" />
+      </div>
+      <ResumeTimeline experiences={experiences} />
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="bg-gray-50 py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-10 reveal">
+        <BlockHeading text="Skills & Tools" />
+      </div>
+      <SkillsGrid categories={skillCategories} />
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-10 reveal">
+        <BlockHeading text="Education" />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12 reveal">
+        <div class="text-sm text-gray-400 font-medium">
+          Jan 1994 — Jan 1996
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-lg text-black">Communications Technology</h3>
+          <p class="text-gray-500 text-sm mt-1">Philippine Science and Technology Center</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="bg-gray-50 py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-10 reveal">
+        <BlockHeading text="Certifications" />
+      </div>
+      <div class="space-y-6">
+        {certifications.map((cert) => (
+          <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-2 md:gap-12 reveal">
+            <div class="text-sm text-gray-400 font-medium">
+              {cert.period}
+            </div>
+            <div>
+              {cert.url ? (
+                <h3 class="font-heading font-bold text-lg text-black">
+                  <a href={cert.url} target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">{cert.name}</a>
+                </h3>
+              ) : (
+                <h3 class="font-heading font-bold text-lg text-black">{cert.name}</h3>
+              )}
+              {cert.issuer && <p class="text-gray-500 text-sm mt-1">{cert.issuer}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-10 reveal">
+        <BlockHeading text="Awards & Scholarships" />
+      </div>
+      <div class="space-y-6">
+        {awards.map((award) => (
+          <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-2 md:gap-12 reveal">
+            <div class="text-sm text-gray-400 font-medium">
+              {award.period}
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-lg text-black">{award.name}</h3>
+              {award.issuer && <p class="text-gray-500 text-sm mt-1">{award.issuer}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA variant="contact" />
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+const navLinks = [
+  { label: 'Work', href: '/#work' },
+  { label: 'Resume', href: '/resume' },
+  { label: 'Get in touch', href: '#contact', isAccent: true },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 h-16 lg:h-20">
+    <!-- Logo / Name -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+        <img
+          src="/jordan-photo.png"
+          alt="Jordan Hilario"
+          width="36"
+          height="36"
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+      <span class="font-heading font-bold text-sm tracking-wide uppercase text-black">
+        Jordan Hilario
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              'text-sm font-medium transition-colors duration-200',
+              link.isAccent
+                ? 'bg-black text-white px-5 py-2.5 hover:bg-accent'
+                : 'text-gray-600 hover:text-black',
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile Menu -->
+    <details class="md:hidden group" id="mobile-menu">
+      <summary class="list-none cursor-pointer p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            class="group-open:hidden"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <path
+            class="hidden group-open:block"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </summary>
+      <div class="absolute left-0 right-0 top-full bg-white border-b border-gray-200 px-6 py-6">
+        <ul class="flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  'block text-base font-medium',
+                  link.isAccent
+                    ? 'bg-black text-white px-5 py-2.5 text-center hover:bg-accent'
+                    : 'text-gray-600 hover:text-black',
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  </nav>
+</header>

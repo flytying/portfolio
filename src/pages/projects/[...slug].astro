@@ -1,0 +1,138 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlockHeading from '@components/BlockHeading.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const allProjects = await getCollection('projects');
+const otherProjects = allProjects
+  .filter((p) => p.id !== project.id && p.data.featured)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={`${project.data.title} — Jordan Hilario`}
+  description={project.data.description}
+  type="article"
+>
+  <!-- Hero Image -->
+  <section class="w-full bg-gray-100">
+    <img
+      src={project.data.heroImage}
+      alt={project.data.title}
+      class={`w-full h-[40vh] md:h-[55vh] ${project.data.heroFit === 'contain' ? 'object-contain p-6 md:p-10' : 'object-cover'}`}
+      loading="eager"
+    />
+  </section>
+
+  <!-- Project Meta -->
+  <section class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+    <div class="reveal">
+      <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-black leading-tight">
+        {project.data.title}
+      </h1>
+      <p class="text-gray-500 text-lg mt-3">{project.data.subtitle}</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-8 border-t border-gray-200 reveal">
+      <div>
+        <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">Role</p>
+        <p class="text-sm font-medium text-black leading-[28px]">{project.data.role}</p>
+      </div>
+      <div>
+        <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">Timeline</p>
+        <p class="text-sm font-medium text-black leading-[28px]">{project.data.timeline}</p>
+      </div>
+      {project.data.team && (
+        <div>
+          <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">Team</p>
+          <p class="text-sm font-medium text-black leading-[28px]">{project.data.team}</p>
+        </div>
+      )}
+      <div class="col-span-2 md:col-span-1">
+        <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">Tools</p>
+        <div class="flex flex-wrap gap-2">
+          {project.data.tools.map((tool) => (
+            <span class="text-xs font-medium text-black border border-gray-200 px-2.5 py-1">
+              {tool}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Content -->
+  <section class="mx-auto max-w-3xl px-6 pb-20 md:pb-28">
+    <div class="prose prose-lg prose-project max-w-none reveal
+      prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tight
+      prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-16 prose-h2:mb-6
+      prose-p:text-gray-600 prose-p:leading-relaxed
+      prose-li:text-gray-600
+      prose-strong:text-black
+      prose-img:w-full
+    ">
+      <Content />
+    </div>
+  </section>
+
+  <!-- Video or Other Projects -->
+  {project.data.video ? (
+    <section class="bg-gray-50 py-20 md:py-28">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-10 reveal">
+          <BlockHeading text="Prototype" />
+        </div>
+        <div class="reveal flex justify-center">
+          <video
+            class={`w-full rounded-lg ${project.data.tags.includes('Mobile App') ? 'max-w-sm' : ''}`}
+            controls
+            preload="metadata"
+            poster={project.data.heroImage}
+          >
+            <source src={project.data.video} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+  ) : otherProjects.length > 0 && (
+    <section class="bg-gray-50 py-20 md:py-28">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-10 reveal">
+          <BlockHeading text="More Work" />
+          <h2 class="font-heading font-bold text-3xl text-black mt-4">Other Projects</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal-stagger">
+          {otherProjects.map((p) => (
+            <a href={`/projects/${p.id}`} class="group block reveal">
+              <div class="aspect-[4/3] overflow-hidden bg-gray-200">
+                <img
+                  src={p.data.thumbnail}
+                  alt={p.data.title}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="font-heading font-bold text-lg text-black mt-4">{p.data.title}</h3>
+              <p class="text-gray-500 text-sm mt-1">{p.data.subtitle}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <ContactCTA />
+</BaseLayout>

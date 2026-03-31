@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import ProjectGrid from '@components/ProjectGrid.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).filter((p) => p.data.featured);
+---
+
+<BaseLayout
+  title="Jordan Hilario — Product Designer"
+  description="UI/UX & Product Designer crafting intuitive interfaces and meaningful user experiences."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jordan Hilario",
+      "jobTitle": "Product Designer",
+      "url": "https://jordanhilario.vercel.app",
+    })} />
+  </Fragment>
+
+  <Hero />
+  <ProjectGrid projects={projects} />
+  <ContactCTA />
+</BaseLayout>
