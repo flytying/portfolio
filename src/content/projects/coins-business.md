@@ -7,13 +7,13 @@ timeline: "2023"
 team: "Coins.ph"
 tools: ["Adobe XD", "FigJam"]
 tags: ["Web App", "Fintech", "B2B"]
-thumbnail: "/projects/Business/hero.png"
-heroImage: "/projects/Business/hero.png"
+thumbnail: "/projects/business/hero.png"
+heroImage: "/projects/business/hero.png"
 featured: true
 sortOrder: 1
 gridSize: "large"
 publishDate: 2023-06-01
-video: "/projects/Business/business-portal-video.mp4"
+video: "/projects/business/business-portal-video.mp4"
 ---
 
 ## Project Summary
@@ -34,7 +34,7 @@ Business clients were using the standard wallet portal, which created several pr
 
 This created friction for existing partners and limited the product's ability to feel like a true business platform.
 
-![Before — the existing consumer-oriented portal experience](/projects/Business/business-before.webp)
+![Before — the existing consumer-oriented portal experience](/projects/business/business-before.webp)
 
 ## Product Goal
 
@@ -83,7 +83,7 @@ Some of the main challenges were:
 - Making the interface feel lightweight and usable while supporting more robust business functionality
 - Balancing stakeholder requirements with the practical needs of partners
 
-![Additional design explorations](/projects/Business/business-others-01.webp)
+![Additional design explorations](/projects/business/business-others-01.webp)
 
 ## Design Approach
 
@@ -106,7 +106,7 @@ The team aligned on business goals and identified likely risks and failure point
 
 I then translated these insights into wireframes to explore the product structure and user flow. These early concepts helped validate navigation, layout, and core task flows before moving into polished designs.
 
-![Wireframes exploring product structure and user flows](/projects/Business/business-wireframes.webp)
+![Wireframes exploring product structure and user flows](/projects/business/business-wireframes.webp)
 
 The design evolved through multiple rounds of feedback with stakeholders, allowing us to refine both the business requirements and the user experience at the same time. Once the core structure was validated, I developed high-fidelity mockups and supported the experience through early partner-facing iterations.
 
@@ -127,28 +127,28 @@ Key improvements included:
   <div class="relative">
     <div class="flex gap-6 overflow-x-auto scroll-smooth px-6 gallery-scroll" id="gallery-track">
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #0f2744;">
-        <img src="/projects/Business/00-Login.png" alt="Login screen" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/00-Login.png" alt="Login screen" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #1a3a5c;">
-        <img src="/projects/Business/01-Wallet.png" alt="Wallet overview" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/01-Wallet.png" alt="Wallet overview" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #0d3b66;">
-        <img src="/projects/Business/02-Wallet%20Detail%20Screen%20-%20PHP.png" alt="Wallet detail — PHP balance" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/02-Wallet%20Detail%20Screen%20-%20PHP.png" alt="Wallet detail — PHP balance" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #1b4965;">
-        <img src="/projects/Business/03-Cash%20In%20Transactions.png" alt="Cash-in transactions" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/03-Cash%20In%20Transactions.png" alt="Cash-in transactions" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #14375e;">
-        <img src="/projects/Business/05-Cash%20In%20Transactions%20%E2%80%93%20Cash%20In%20-%20OTC%20-%203.png" alt="Cash-in — OTC flow" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/05-Cash%20In%20Transactions%20%E2%80%93%20Cash%20In%20-%20OTC%20-%203.png" alt="Cash-in — OTC flow" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #0f2744;">
-        <img src="/projects/Business/06-Approvals.png" alt="Approvals" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/06-Approvals.png" alt="Approvals" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #1a3a5c;">
-        <img src="/projects/Business/08-Users.png" alt="Users management" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/08-Users.png" alt="Users management" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
       <div class="flex-shrink-0 rounded-2xl p-10 md:p-16" style="background-color: #0d3b66;">
-        <img src="/projects/Business/10-Account.png" alt="Account settings" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
+        <img src="/projects/business/10-Account.png" alt="Account settings" class="h-[48vh] w-auto object-contain rounded-lg shadow-2xl" />
       </div>
     </div>
     <button onclick="document.getElementById('gallery-track').scrollBy({left: -600, behavior: 'smooth'})" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black text-white flex items-center justify-center hover:bg-accent transition-colors cursor-pointer z-10" aria-label="Scroll left">
