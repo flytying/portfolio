@@ -7,7 +7,7 @@ timeline: "2023"
 team: "Coins.ph"
 tools: ["Adobe XD", "FigJam"]
 tags: ["Web App", "Fintech", "B2B"]
-thumbnail: "/projects/business/hero.png"
+thumbnail: "/projects/business/thumbnail.png"
 heroImage: "/projects/business/hero.png"
 featured: true
 sortOrder: 1

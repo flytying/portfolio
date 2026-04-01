@@ -6,8 +6,8 @@ role: "Product Designer"
 timeline: "2019"
 tools: ["Adobe XD"]
 tags: ["Mobile App", "Fintech", "Startup"]
-thumbnail: "/projects/billturtle/hero.webp"
-heroImage: "/projects/billturtle/hero.webp"
+thumbnail: "/projects/billturtle/hero.png"
+heroImage: "/projects/billturtle/hero.png"
 featured: true
 sortOrder: 3
 gridSize: "large"

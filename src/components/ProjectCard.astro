@@ -11,7 +11,7 @@ interface Props {
 
 const { slug, title, subtitle, thumbnail, tags, gridSize, heroFit = 'cover' } = Astro.props;
 
-const colSpanClass = 'md:col-span-12';
+const colSpanClass = 'md:col-span-6';
 
 const aspectClass = gridSize === 'small' ? 'aspect-square' : 'aspect-[4/3]';
 ---

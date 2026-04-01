@@ -21,6 +21,7 @@ const projects = defineCollection({
     externalUrl: z.string().url().optional(),
     video: z.string().optional(),
     heroFit: z.enum(['cover', 'contain']).default('cover'),
+    hideFooterSection: z.boolean().default(false),
   }),
 });
 
