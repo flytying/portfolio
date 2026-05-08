@@ -10,7 +10,7 @@ tags: ["Web App", "Fintech", "B2B"]
 thumbnail: "/projects/business/thumbnail.png"
 heroImage: "/projects/business/hero.png"
 featured: true
-sortOrder: 1
+sortOrder: 3
 gridSize: "large"
 publishDate: 2023-06-01
 video: "/projects/business/business-portal-video.mp4"

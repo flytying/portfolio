@@ -9,7 +9,7 @@ tags: ["Mobile App", "Fintech", "Startup"]
 thumbnail: "/projects/billturtle/hero.png"
 heroImage: "/projects/billturtle/hero.png"
 featured: true
-sortOrder: 3
+sortOrder: 5
 gridSize: "large"
 publishDate: 2019-01-01
 video: "/projects/billturtle/prototype.mp4"
