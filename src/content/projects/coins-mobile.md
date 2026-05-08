@@ -10,7 +10,7 @@ tags: ["Mobile App", "Fintech", "Crypto"]
 thumbnail: "/projects/coins-mobile/coins-hero.png"
 heroImage: "/projects/coins-mobile/coins-hero.png"
 featured: true
-sortOrder: 2
+sortOrder: 4
 gridSize: "large"
 publishDate: 2023-03-01
 video: "/projects/coins-mobile/coins-prototype.mp4"

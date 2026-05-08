@@ -10,7 +10,7 @@ tags: ["Product Exploration", "AI", "B2B"]
 thumbnail: "/projects/allocation-recommendation/hero.png"
 heroImage: "/projects/allocation-recommendation/hero.png"
 featured: true
-sortOrder: 4
+sortOrder: 1
 gridSize: "large"
 publishDate: 2024-06-01
 hideFooterSection: true

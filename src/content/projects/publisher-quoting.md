@@ -10,7 +10,7 @@ tags: ["Web App", "B2B", "Internal Tool"]
 thumbnail: "/projects/publisher-quoting/hero.png"
 heroImage: "/projects/publisher-quoting/hero.png"
 featured: true
-sortOrder: 5
+sortOrder: 2
 gridSize: "large"
 publishDate: 2025-01-01
 hideFooterSection: true
